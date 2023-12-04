@@ -66,12 +66,12 @@ body{
       transform: translateX(-50%);
   }
 
-  .btn-row .toMenu, .btn-row .startButton {
+  .btn-row .toMenu, .startButton, .toMenuEnd {
       margin: 0 1vw;
       width: 18vw;
       text-decoration: none;
       text-align: center;
-      height: max-content;
+      height: 100%;
       font-family: CyrillicRound, serif;
       font-size: 4.5vh;
       border-radius: 1vw;
@@ -84,7 +84,14 @@ body{
       transition: .15s;
   }
 
-.startButton:hover, .toMenu:hover {
+  .toMenuEnd {
+      position: absolute;
+      bottom: 33%;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+.startButton:hover, .toMenu:hover, .toMenuEnd {
     background: rgba(28, 157, 41, 0.8);
     box-shadow: 0 0 1.5vw 0 #faf5e1;
 }
