@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    user-select: none;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    background-image: url(../img/bg3.jpg);
+    background-size: 105%;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-color: #faf5e1;
+    overflow: hidden;
+}
+
+h1 {
+    background: rgba(21, 129, 33, 0.8);
+}
+
+.congratulation{
+    background-color: rgba(248, 223, 192, 0.92);
+    color: black;
+}
+
+.start {
+    z-index: 15;
+    background-image: url(../img/bg2.jpg);
+    background-position: center;
+    background-size: 112%;
+}
+
+.startButton, .toMenu {
+    border: 0.3vh solid #faf5e1;
+    box-shadow: 0 0 1vw 0 #faf5e1;
+    background: rgba(21, 129, 33, 0.8);
+}
+
+.backButton {
+    border: 0.2vh solid #faf5e1;
+    box-shadow: 0 0 0.6vw 0 #faf5e1;
+    background: rgba(21, 129, 33, 0.8);
+}
+
+.startButton:hover, .toMenu:hover {
+    background: rgba(28, 157, 41, 0.8);
+    box-shadow: 0 0 1.5vw 0 #faf5e1;
+}
+
+.backButton:hover {
+    background: rgba(28, 157, 41, 0.8);
+    box-shadow: 0 0 1vw 0 #faf5e1;
+}
+
+.drag-item {
+    position: absolute;
+    z-index: 10;
+    height: 7vw;
+    width: 7vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#item3 {
+    height: 10vh;
+    width: 10vw;
+}
+
+.index {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.43);
+    margin: 1vw;
+    font-size: 5vw;
+    color: #0c530c;
+}
+
+.block1 {
+    display: flex;
+    position: absolute;
+    justify-content: space-around;
+    left: 2vw;
+    top: 7vw;
+    width: 60vw;
+    font-family: FlowBold, serif;
+}
+
+.block3 {
+    display: flex;
+    position: absolute;
+    justify-content: space-around;
+    width: 60vw;
+    top: 33vw;
+    left: 30vw;
+    font-family: FlowBold, serif;
+}
+
+@keyframes rotate_time {
+    0% {
+        bottom: 2%;
+        left: -2vw;
+    }
+
+    100% {
+        bottom: 2%;
+        left: 100vw;
+    }
+}
+
+.gg {
+    animation-name: rotate_time;
+    position: absolute;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: 100;
+    right: 2vw;
+    height: 11vw;
+}
+
+.zadanie {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 23vw;
+    left: 6vw;
+    background-color: rgba(255, 255, 255, 0.65);
+    width: 20vw;
+    height: 20vw;
+    font-size: 3vw;
+    text-align: center;
+    color: #0c530c;
+    border-radius: 50vw;
+    font-family: CyrillicRound, serif;
+    line-height: 8vh;
+}

@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    background-size: cover;
+    display: grid;
+    place-content: center;
+}
+
+h1 {
+    justify-self: center;
+    width: 80%;
+    font-size: 10vh;
+    font-family: FlowBold, serif;
+    color: white;
+    padding: 1vw 2vw;
+    background: rgba(19, 40, 118, 0.8);
+    border-radius: 2.5vh;
+    border: 0.3vh solid white;
+    box-shadow: 0 0 1.5vw 0 white;
+    text-align: center;
+}
+
+.congratulation, .start {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+}
+
+.congratulation {
+    display: none;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 6vh;
+}
+
+.start h1 {
+    font-size: 8vh;
+}
+
+.toMenu, .startButton, .backButton {
+    text-decoration: none;
+    text-align: center;
+    font-family: CyrillicRound, serif;
+    font-size: 4.5vh;
+    border: 0.3vh solid white;
+    border-radius: 1vw;
+    box-shadow: 0 0 1vw 0 white;
+    color: white;
+    background: rgba(19, 40, 118, 0.8);
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: .15s;
+}
+
+.backButton {
+    border: 0.2vh solid white;
+    border-radius: 0.8vw;
+    box-shadow: 0 0 0.6vw 0 white;
+    font-size: 4vh;
+    padding: 0 1vw;
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    display: none;
+}
+
+.startButton, .toMenu {
+    padding: 0.75vw 1.5vw;
+    margin: 0 1.5vw;
+    width: 20vw;
+}
+
+.toMenu:hover, .startButton:hover {
+    background: rgba(44, 67, 153, 0.8);
+    box-shadow: 0 0 1.5vw 0 white;
+    transition: .15s;
+}
+
+.backButton:hover {
+    background: rgba(44, 67, 153, 0.8);
+    box-shadow: 0 0 1vw 0 white;
+    transition: .15s;
+}

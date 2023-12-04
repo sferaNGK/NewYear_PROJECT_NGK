@@ -1,0 +1,9 @@
+@font-face {
+    src: url("../fonts/cyrillicround.ttf");
+    font-family: 'CyrillicRound';
+}
+
+@font-face {
+    font-family: 'FlowBold';
+    src: url('../fonts/Flow_B.otf');
+}

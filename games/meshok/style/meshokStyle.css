@@ -1,0 +1,140 @@
+body {
+    background-image: url("../img/bgForMeshok.jpeg");
+}
+
+#meshok, .non-drag-item, .drag-item {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    height: 26vh;
+    width: 13vw;
+    display: none;
+}
+
+#dedMoroz {
+    background-image: url("../img/DedMoroz.png");
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    height: 27vh;
+    width: 28vw;
+    left: -50%;
+    display: none;
+}
+
+.dedMorozAnimation {
+    animation: dedMoroz 5s linear;
+}
+
+@keyframes dedMoroz {
+    0% {
+        opacity: 0;
+        left: -50%;
+        top: 30%;
+        transform: rotate(-10deg);
+    }
+    25% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0;
+        left: 100%;
+        top: 0;
+        transform: rotate(20deg);
+    }
+}
+
+#meshok {
+    background-image: url("../img/meshok.png");
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 42vh;
+    width: 22vw;
+}
+
+#sumka {
+    background-image: url("../img/sumka.png");
+    top: 15%;
+    left: 42.5%;
+    height: 24vh;
+    width: 15vw;
+}
+
+#marmelad {
+    background-image: url("../img/marmelad.png");
+    top: 72%;
+    left: 20%;
+    height: 18vh;
+}
+
+#bear {
+   background-image: url("../img/bear.png");
+    top: 46%;
+    left: 5%;
+    height: 24vh;
+    width: 15vw;
+}
+
+#jam {
+    background-image: url("../img/jam.png");
+    top: 40%;
+    left: 23%;
+    height: 22vh;
+}
+
+#vegetable {
+    background-image: url("../img/vegetable.png");
+    top: 10%;
+    left: 4%;
+    width: 15vw;
+    height: 24vh;
+}
+
+#socks {
+    background-image: url("../img/socks.png");
+    top: 5%;
+    left: 23%;
+}
+
+#comp {
+    background-image: url("../img/comp.png");
+    top: 8%;
+    right: 22%;
+    height: 20vh;
+}
+
+#car {
+    background-image: url("../img/car.png");
+    top: 78%;
+    right: 23%;
+    height: 16vh;
+}
+
+#konki {
+    background-image: url("../img/konki.png");
+    top: 44%;
+    right: 23%;
+    height: 20vh;
+}
+
+#kukla {
+    background-image: url("../img/kukla.png");
+    top: 18%;
+    right: 4%;
+    height: 20vh;
+}
+
+#snegokat {
+    background-image: url("../img/snegokat.png");
+    top: 60%;
+    right: 4%;
+    height: 18vh;
+}

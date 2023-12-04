@@ -1,0 +1,126 @@
+body {
+    background-image: url("../img/winter_night_street.png");
+}
+
+.non-drag-item, .drag-item {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    visibility: hidden;
+    transition: .05s;
+}
+
+#meshok {
+    bottom: 4%;
+    left: 7%;
+    height: 44vh;
+    width: 21vw;
+}
+
+#elka {
+    height: 87vh;
+    width: 39vw;
+    right: 16%;
+    bottom: 3%;
+}
+
+#treeStar {
+    width: 8.5vw;
+    height: 14.5vh;
+    top: 82%;
+    right: 53%;
+}
+
+#orBall1 {
+    height: 8vh;
+    width: 5vw;
+    top: 40%;
+    right: 38%;
+    transform: rotate(20deg);
+}
+
+#pBall1 {
+    height: 8vh;
+    width: 5vw;
+    top: 70%;
+    right: 56%;
+    transform: rotate(20deg);
+}
+
+#orBall2 {
+    height: 8vh;
+    width: 5vw;
+    top: 86%;
+    right: 12%;
+    transform: rotate(-20deg);
+}
+
+#lights1 {
+    height: 18vh;
+    width: 30vw;
+    top: 75%;
+    right: 22%;
+}
+
+#lights2 {
+    height: 12vh;
+    width: 20vw;
+    top: 42.5%;
+    right: -2.3%;
+}
+
+#elkaToy {
+    height: 14vh;
+    width: 6vw;
+    top: 62%;
+    right: 33%;
+    transform: rotate(2deg);
+}
+
+#box {
+    height: 7vh;
+    width: 5vw;
+    top: 32%;
+    right: 29%;
+    transform: rotate(-10deg);
+}
+
+#meshura {
+    height: 10vh;
+    width: 10vw;
+    top: 21%;
+    right: 31%;
+    transform: rotate(-15deg);
+}
+
+#wrench {
+    height: 8vh;
+    width: 7vw;
+    top: 60%;
+    right: 40%;
+    transform: rotate(120deg);
+}
+
+#kirieshki {
+    top: 63%;
+    left: 67%;
+    height: 11vh;
+    width: 8vw;
+    transform: rotate(-6deg);
+}
+
+#buter {
+    top: 46%;
+    left: 64%;
+    height: 8vh;
+    width: 6vw;
+    transform: rotate(50deg);
+}
+
+#gear {
+    height: 12vh;
+    width: 9vw;
+    top: 6%;
+    right: 30.8%;
+}
