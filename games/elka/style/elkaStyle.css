@@ -8,7 +8,6 @@ body {
     background-position: center;
     position: absolute;
     visibility: hidden;
-    transition: .05s;
 }
 
 #meshok {
