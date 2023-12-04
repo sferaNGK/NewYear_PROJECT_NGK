@@ -26,6 +26,7 @@ document.getElementById('text13').value = 30;
 document.querySelector('.startButton').onclick = () => {
     document.querySelector('#wr1').style.visibility = 'hidden'
     document.querySelector('.btn-row').style.display = 'none'
+    document.documentElement.requestFullscreen()
 }
 
 let wr1 = document.querySelector('#wr1')
