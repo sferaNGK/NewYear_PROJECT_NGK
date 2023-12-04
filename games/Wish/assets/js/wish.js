@@ -36,10 +36,34 @@ function showWish(event) {
     const wishContainer = document.querySelector('.wish-container')
 
     const wish = document.createElement('div')
+    const width = 110
+    const height = 150
+
     wish.className = 'wish'
 
-    wish.style.top = event.touches[0].pageY  + 'px'
-    wish.style.left = event.touches[0].pageX  + 'px'
+    wish.style.width = width + 'px'
+    wish.style.height = height + 'px'
+
+    let touchX = event.touches[0].pageX
+    let touchY = event.touches[0].pageY
+
+    if (touchY < height) {
+        touchY = height + height * .2
+    }
+    if (window.innerHeight < touchY + height) {
+        touchY = window.innerHeight - height * 3
+    }
+    if (touchX < width) {
+        touchX = width + width * .5
+    }
+    if (window.innerWidth < touchX + width) {
+        touchX = window.innerWidth - width * 3
+    }
+    console.log(window.innerHeight)
+    console.log(touchY + height * 5)
+
+    wish.style.top = touchY  + 'px'
+    wish.style.left = touchX  + 'px'
 
     const wishMessage = document.createElement('div')
     wishMessage.className = 'wish-message'
