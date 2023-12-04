@@ -50,13 +50,13 @@ function showWish(event) {
     if (touchY < height) {
         touchY = height + height * .2
     }
-    if (window.innerHeight < touchY + height) {
+    if (window.innerHeight < touchY + height * 3) {
         touchY = window.innerHeight - height * 3
     }
     if (touchX < width) {
         touchX = width + width * .5
     }
-    if (window.innerWidth < touchX + width) {
+    if (window.innerWidth < touchX + width * 3) {
         touchX = window.innerWidth - width * 3
     }
     console.log(window.innerHeight)
