@@ -65,8 +65,8 @@ function handleTouchMove(event) {
 
         // --- ЗАДАЕМ ЧЕРЕЗ JS-АНИМАЦИЮ КООРДИНАТЫ НАШЕГО КУРСОРА (ПАЛЬЦА) НА ЭКРАНЕ ---
         requestAnimationFrame(() => {
-            item.style.left = event.touches[0].pageX - shiftX + 'px';
-            item.style.top = event.touches[0].pageY - shiftY + 'px';
+            item.style.left = (event.touches[0].pageX - shiftX)*100/document.documentElement.clientWidth + '%';
+            item.style.top = (event.touches[0].pageY - shiftY)*100/document.documentElement.clientHeight + '%';
 
             // --- ПРОВЕРЯЕМ, НЕ ВЫХОДИТ ЛИ НАШ ОБЪЕКТ ЗА ГРАНИЦЫ ЭКРАНА ---
             if (event.touches[0].pageX < 40) {
