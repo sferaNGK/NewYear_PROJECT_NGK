@@ -78,7 +78,7 @@ body{
       border: 0.3vh solid #faf5e1;
       box-shadow: 0 0 1vw 0 #faf5e1;
       color: white;
-      background: rgba(21, 129, 33, 0.8);
+      background: rgba(21, 129, 33);
       cursor: pointer;
       letter-spacing: 1px;
       transition: .15s;
@@ -92,7 +92,7 @@ body{
   }
 
 .startButton:hover, .toMenu:hover, .toMenuEnd {
-    background: rgba(28, 157, 41, 0.8);
+    background: rgba(28, 157, 41);
     box-shadow: 0 0 1.5vw 0 #faf5e1;
 }
 
