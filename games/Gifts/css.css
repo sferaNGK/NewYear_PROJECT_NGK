@@ -71,7 +71,7 @@ body{
       width: 18vw;
       text-decoration: none;
       text-align: center;
-      height: 100%;
+      height: max-content;
       font-family: CyrillicRound, serif;
       font-size: 4.5vh;
       border-radius: 1vw;
