@@ -65,6 +65,7 @@ function handleTouchStart(event){
 }
 
 function handleTouchMove(event) {
+    event.preventDefault()
     if (currentElement.current !== null) {
         let item = currentElement.current.target;
 
