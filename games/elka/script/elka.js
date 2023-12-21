@@ -9,6 +9,10 @@ for (let item = 0; item < allItems.length; item++) {
     }
 }
 
+window.onresize = function (e) {
+    console.log(e)
+}
+
 const meshok = document.querySelector('#meshok');
 const elka = document.querySelector('#elka');
 

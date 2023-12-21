@@ -1,5 +1,6 @@
 body {
     background-image: url("../img/winter_night_street.png");
+    touch-action: none;
 }
 
 .non-drag-item, .drag-item {
