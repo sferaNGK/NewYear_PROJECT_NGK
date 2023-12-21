@@ -67,18 +67,18 @@ function handleTouchMove(event) {
         item.style.left = (event.touches[0].pageX - shiftX) * 100 / document.documentElement.clientWidth + '%';
         item.style.top = (event.touches[0].pageY - shiftY) * 100 / document.documentElement.clientHeight + '%';
 
-        console.log(document.documentElement.clientWidth)
+        console.log(event.touches[0].target.getBoundingClientRect().left)
 
         // --- ПРОВЕРЯЕМ, НЕ ВЫХОДИТ ЛИ НАШ ОБЪЕКТ ЗА ГРАНИЦЫ ЭКРАНА ---
-        if (event.touches[0].pageX < 40) {
-            item.style.left = event.touches[0].pageX - shiftX + 170 + 'px';
-        } else if (event.touches[0].pageX > window.screen.width - 50) {
-            item.style.left = event.touches[0].pageX - shiftX - 170 + 'px';
+        if (event.touches[0].target.getBoundingClientRect().left < 0) {
+            item.style.left = "50%";
+        } else if (event.touches[0].target.getBoundingClientRect().left > window.screen.width - 100) {
+            item.style.left = "50%";
         }
-        if (event.touches[0].pageY < 40) {
-            item.style.top = event.touches[0].pageY - shiftY + 170 + 'px';
-        } else if (event.touches[0].pageY > window.screen.height - 50) {
-            item.style.top = event.touches[0].pageY - shiftY - 170 + 'px';
+        if (event.touches[0].target.getBoundingClientRect().top < 0) {
+            item.style.top = "50%";
+        } else if (event.touches[0].target.getBoundingClientRect().top > window.screen.height - 100) {
+            item.style.top = "50%";
         }
 
         // --- СКРЫВАЕМ ПЕРЕТАСКИВАЕМЫЙ ОБЪЕКТ, ЧТОБЫ ОПРЕДЕЛИТЬ НАХОДЯЩИЙСЯ ПОД НИМ БЛОК, И СНОВА ПОКАЗЫВАЕМ ---
