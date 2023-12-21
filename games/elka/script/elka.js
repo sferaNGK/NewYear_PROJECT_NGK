@@ -62,22 +62,20 @@ function handleTouchMove(event) {
         let item = currentElement.current.target
 
         // --- ЗАДАЕМ ЧЕРЕЗ JS-АНИМАЦИЮ КООРДИНАТЫ НАШЕГО КУРСОРА (ПАЛЬЦА) НА ЭКРАНЕ ---
-        window.requestAnimationFrame(() => {
-            item.style.left = (event.touches[0].pageX - shiftX)*100/document.documentElement.clientWidth + '%';
-            item.style.top = (event.touches[0].pageY - shiftY)*100/document.documentElement.clientHeight + '%';
+        item.style.left = (event.touches[0].pageX - shiftX)*100/document.documentElement.clientWidth + '%';
+        item.style.top = (event.touches[0].pageY - shiftY)*100/document.documentElement.clientHeight + '%';
 
-            // --- ПРОВЕРЯЕМ, НЕ ВЫХОДИТ ЛИ НАШ ОБЪЕКТ ЗА ГРАНИЦЫ ЭКРАНА ---
-            if (event.touches[0].pageX < 40) {
-                item.style.left = event.touches[0].pageX - shiftX + 170 + 'px';
-            } else if (event.touches[0].pageX > window.screen.width - 50) {
-                item.style.left = event.touches[0].pageX - shiftX - 170 + 'px';
-            }
-            if (event.touches[0].pageY < 40) {
-                item.style.top = event.touches[0].pageY - shiftY + 170 + 'px';
-            } else if (event.touches[0].pageY > window.screen.height - 50) {
-                item.style.top = event.touches[0].pageY - shiftY - 170 + 'px';
-            }
-        })
+        // --- ПРОВЕРЯЕМ, НЕ ВЫХОДИТ ЛИ НАШ ОБЪЕКТ ЗА ГРАНИЦЫ ЭКРАНА ---
+        if (event.touches[0].pageX < 40) {
+            item.style.left = event.touches[0].pageX - shiftX + 170 + 'px';
+        } else if (event.touches[0].pageX > window.screen.width - 50) {
+            item.style.left = event.touches[0].pageX - shiftX - 170 + 'px';
+        }
+        if (event.touches[0].pageY < 40) {
+            item.style.top = event.touches[0].pageY - shiftY + 170 + 'px';
+        } else if (event.touches[0].pageY > window.screen.height - 50) {
+            item.style.top = event.touches[0].pageY - shiftY - 170 + 'px';
+        }
 
         // --- СКРЫВАЕМ ПЕРЕТАСКИВАЕМЫЙ ОБЪЕКТ, ЧТОБЫ ОПРЕДЕЛИТЬ НАХОДЯЩИЙСЯ ПОД НИМ БЛОК, И СНОВА ПОКАЗЫВАЕМ ---
         item.style.visibility = 'hidden';
