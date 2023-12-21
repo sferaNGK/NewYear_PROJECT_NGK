@@ -9,16 +9,6 @@ for (let item = 0; item < allItems.length; item++) {
     }
 }
 
-document.body.addEventListener("touchmove", (e) => {
-    e.preventDefault()
-})
-
-for (let item of allItems) {
-    item.addEventListener("touchmove", (e) => {
-        e.preventDefault()
-    })
-}
-
 const meshok = document.querySelector('#meshok');
 const elka = document.querySelector('#elka');
 
@@ -53,11 +43,17 @@ let itemsInElka = [];
 let shiftX = null;
 let shiftY = null;
 
-for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕМЫЕ ОБЪЕКТЫ ОБРАБОТЧИК СОБЫТИЯ
-    item.addEventListener('touchstart', handleTouchStart);
-    if (item.className.split(' ')[1] === 'inElka') {
-        itemsInElka.push(item.id)
-    }
+// for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕМЫЕ ОБЪЕКТЫ ОБРАБОТЧИК СОБЫТИЯ
+//     item.addEventListener('touchstart', handleTouchStart);
+//     if (item.className.split(' ')[1] === 'inElka') {
+//         itemsInElka.push(item.id)
+//     }
+// }
+
+document.querySelector("body").addEventListener("touchstart", handleTouchStart)
+
+for (let i of document.querySelector("body").children){
+    i.addEventListener("touchstart", handleTouchStart)
 }
 
 function handleTouchStart(event) {
