@@ -51,7 +51,9 @@ for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕ�
 }
 
 function handleTouchStart(event) {
-    currentElement.current = event.targetTouches[0];
+    if (currentElement.current === null) {
+        currentElement.current = event.targetTouches[0];
+    }
     document.body.addEventListener('touchmove', handleTouchMove);
     shiftX = event.touches[0].clientX - this.getBoundingClientRect().left;
     shiftY = event.touches[0].clientY - this.getBoundingClientRect().top;
