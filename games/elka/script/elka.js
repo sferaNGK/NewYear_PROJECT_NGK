@@ -9,6 +9,16 @@ for (let item = 0; item < allItems.length; item++) {
     }
 }
 
+document.body.addEventListener("touchmove", (e) => {
+    e.preventDefault()
+})
+
+for (let item of allItems) {
+    item.addEventListener("touchmove", (e) => {
+        e.preventDefault()
+    })
+}
+
 const meshok = document.querySelector('#meshok');
 const elka = document.querySelector('#elka');
 
