@@ -9,10 +9,6 @@ for (let item = 0; item < allItems.length; item++) {
     }
 }
 
-window.onresize = function (e) {
-    console.log(e)
-}
-
 const meshok = document.querySelector('#meshok');
 const elka = document.querySelector('#elka');
 
@@ -57,8 +53,8 @@ for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕ�
 function handleTouchStart(event) {
     currentElement.current = event.targetTouches[0];
     document.body.addEventListener('touchmove', handleTouchMove);
-    shiftX = event.touches[0].pageX - this.getBoundingClientRect().left;
-    shiftY = event.touches[0].pageY - this.getBoundingClientRect().top;
+    shiftX = event.touches[0].clientX - this.getBoundingClientRect().left;
+    shiftY = event.touches[0].clientY - this.getBoundingClientRect().top;
 }
 
 function handleTouchMove(event) {
