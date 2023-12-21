@@ -67,6 +67,8 @@ function handleTouchMove(event) {
         item.style.left = (event.touches[0].pageX - shiftX) * 100 / document.documentElement.clientWidth + '%';
         item.style.top = (event.touches[0].pageY - shiftY) * 100 / document.documentElement.clientHeight + '%';
 
+        console.log(document.documentElement.clientWidth)
+
         // --- ПРОВЕРЯЕМ, НЕ ВЫХОДИТ ЛИ НАШ ОБЪЕКТ ЗА ГРАНИЦЫ ЭКРАНА ---
         if (event.touches[0].pageX < 40) {
             item.style.left = event.touches[0].pageX - shiftX + 170 + 'px';
