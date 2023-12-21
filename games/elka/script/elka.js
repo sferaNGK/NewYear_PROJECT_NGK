@@ -43,18 +43,18 @@ let itemsInElka = [];
 let shiftX = null;
 let shiftY = null;
 
-// for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕМЫЕ ОБЪЕКТЫ ОБРАБОТЧИК СОБЫТИЯ
-//     item.addEventListener('touchstart', handleTouchStart);
-//     if (item.className.split(' ')[1] === 'inElka') {
-//         itemsInElka.push(item.id)
-//     }
-// }
-
-document.querySelector("body").addEventListener("touchstart", handleTouchStart)
-
-for (let i of document.querySelector("body").children){
-    i.addEventListener("touchstart", handleTouchStart)
+for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕМЫЕ ОБЪЕКТЫ ОБРАБОТЧИК СОБЫТИЯ
+    item.addEventListener('touchstart', handleTouchStart);
+    if (item.className.split(' ')[1] === 'inElka') {
+        itemsInElka.push(item.id)
+    }
 }
+
+// document.querySelector("body").addEventListener("touchstart", handleTouchStart)
+//
+// for (let i of document.querySelector("body").children){
+//     i.addEventListener("touchstart", handleTouchStart)
+// }
 
 function handleTouchStart(event) {
     console.log(event.targetTouches[0])
