@@ -53,12 +53,15 @@ for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕ�
 document.body.addEventListener("touchstart", handleTouchStart)
 
 function handleTouchStart(event) {
-    if (dragItems.includes(event.targetTouches[0].target)) {
+    if (currentElement.current === null) {
         currentElement.current = event.targetTouches[0];
-        document.body.addEventListener('touchmove', handleTouchMove);
-        shiftX = event.touches[0].clientX - event.targetTouches[0].target.getBoundingClientRect().left;
-        shiftY = event.touches[0].clientY - event.targetTouches[0].target.getBoundingClientRect().top;
+        if (dragItems.includes(currentElement.current.target)) {
+            currentElement.current.target.addEventListener('touchmove', handleTouchMove);
+            shiftX = event.touches[0].clientX - event.targetTouches[0].target.getBoundingClientRect().left;
+            shiftY = event.touches[0].clientY - event.targetTouches[0].target.getBoundingClientRect().top;
+        }
     }
+    console.log(currentElement.current)
 }
 
 function handleTouchMove(event) {
