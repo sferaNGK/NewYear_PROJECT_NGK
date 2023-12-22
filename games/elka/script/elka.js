@@ -44,6 +44,7 @@ let shiftX = null;
 let shiftY = null;
 
 for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕМЫЕ ОБЪЕКТЫ ОБРАБОТЧИК СОБЫТИЯ
+    item.addEventListener("touchstart", handleTouchStart)
     if (item.className.split(' ')[1] === 'inElka') {
         itemsInElka.push(item.id)
     }
@@ -55,20 +56,15 @@ for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕ�
 //     i.addEventListener("touchstart", handleTouchStart)
 // }
 
-document.body.addEventListener("touchstart", (event) => {
+function handleTouchStart(event) {
     console.log(event.touches.length)
-    if (event.touches.length < 2 && dragItems.includes(event.targetTouches[0].target)) {
-        currentElement.current = event.targetTouches[0];
-        document.body.addEventListener('touchmove', handleTouchMove);
-        shiftX = event.touches[0].clientX - currentElement.current.target.getBoundingClientRect().left;
-        shiftY = event.touches[0].clientY - currentElement.current.target.getBoundingClientRect().top;
-    } else {
-        currentElement.current = null;
-    }
-})
+    currentElement.current = event.targetTouches[0];
+    document.body.addEventListener('touchmove', handleTouchMove);
+    shiftX = event.touches[0].clientX - this.getBoundingClientRect().left;
+    shiftY = event.touches[0].clientY - this.getBoundingClientRect().top;
+}
 
 function handleTouchMove(event) {
-    console.log(event.touches.length)
     if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
         let item = currentElement.current.target
 
@@ -77,15 +73,15 @@ function handleTouchMove(event) {
         item.style.top = (event.touches[0].pageY - shiftY) * 100 / document.documentElement.clientHeight + '%';
 
         // --- ПРОВЕРЯЕМ, НЕ ВЫХОДИТ ЛИ НАШ ОБЪЕКТ ЗА ГРАНИЦЫ ЭКРАНА ---
-        if (event.touches[0].pageX < 40) {
-            item.style.left = event.touches[0].pageX - shiftX + 170 + 'px';
-        } else if (event.touches[0].pageX > window.screen.width - 50) {
-            item.style.left = event.touches[0].pageX - shiftX - 170 + 'px';
+        if (item.style.left.slice(0, 4) < 0) {
+            item.style.left = (event.touches[0].pageX - shiftX + 170) * 100 / document.documentElement.clientWidth + '%';
+        } else if (item.style.left.slice(0, 4) > 93) {
+            item.style.left = (event.touches[0].pageX - shiftX - 170) * 100 / document.documentElement.clientWidth + '%';
         }
-        if (event.touches[0].pageY < 40) {
-            item.style.top = event.touches[0].pageY - shiftY + 170 + 'px';
-        } else if (event.touches[0].pageY > window.screen.height - 50) {
-            item.style.top = event.touches[0].pageY - shiftY - 170 + 'px';
+        if (item.style.top.slice(0, 4) < 0) {
+            item.style.top = (event.touches[0].pageY - shiftY + 170) * 100 / document.documentElement.clientHeight + '%';
+        } else if (item.style.top.slice(0, 4) > 90) {
+            item.style.top = (event.touches[0].pageY - shiftY - 170) * 100 / document.documentElement.clientHeight + '%';
         }
 
         // --- СКРЫВАЕМ ПЕРЕТАСКИВАЕМЫЙ ОБЪЕКТ, ЧТОБЫ ОПРЕДЕЛИТЬ НАХОДЯЩИЙСЯ ПОД НИМ БЛОК, И СНОВА ПОКАЗЫВАЕМ ---
