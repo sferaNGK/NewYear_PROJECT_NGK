@@ -68,6 +68,10 @@ function handleTouchMove(event) {
     if (currentElement.current !== null) {
         let item = currentElement.current.target;
 
+        document.body.onresize = () => {
+            currentElement.current = null;
+        }
+
         item.style.left = (event.touches[0].pageX - shiftX)*100/document.documentElement.clientWidth + '%';
         item.style.top = (event.touches[0].pageY - shiftY)*100/document.documentElement.clientHeight + '%';
 

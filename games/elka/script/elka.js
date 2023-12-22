@@ -63,8 +63,7 @@ function handleTouchMove(event) {
     if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
         let item = currentElement.current.target
 
-        document.body.onresize = function () {
-            console.log('sdf')
+        document.body.onresize = () => {
             currentElement.current = null;
         }
 
