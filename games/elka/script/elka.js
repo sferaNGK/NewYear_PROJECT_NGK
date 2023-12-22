@@ -50,18 +50,15 @@ for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕ�
     }
 }
 
-// document.querySelector("body").addEventListener("touchstart", handleTouchStart)
-//
-// for (let i of document.querySelector("body").children){
-//     i.addEventListener("touchstart", handleTouchStart)
-// }
+document.body.addEventListener("touchstart", handleTouchStart)
 
 function handleTouchStart(event) {
-    console.log(event.touches.length)
-    currentElement.current = event.targetTouches[0];
-    document.body.addEventListener('touchmove', handleTouchMove);
-    shiftX = event.touches[0].clientX - this.getBoundingClientRect().left;
-    shiftY = event.touches[0].clientY - this.getBoundingClientRect().top;
+    if (dragItems.includes(event.targetTouches[0].target)) {
+        currentElement.current = event.targetTouches[0];
+        document.body.addEventListener('touchmove', handleTouchMove);
+        shiftX = event.touches[0].clientX - event.targetTouches[0].target.getBoundingClientRect().left;
+        shiftY = event.touches[0].clientY - event.targetTouches[0].target.getBoundingClientRect().top;
+    }
 }
 
 function handleTouchMove(event) {
