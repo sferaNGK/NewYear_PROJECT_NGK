@@ -44,7 +44,6 @@ let shiftX = null;
 let shiftY = null;
 
 for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕМЫЕ ОБЪЕКТЫ ОБРАБОТЧИК СОБЫТИЯ
-    item.addEventListener('touchstart', handleTouchStart);
     if (item.className.split(' ')[1] === 'inElka') {
         itemsInElka.push(item.id)
     }
@@ -56,15 +55,15 @@ for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕ�
 //     i.addEventListener("touchstart", handleTouchStart)
 // }
 
-function handleTouchStart(event) {
-    console.log(event.targetTouches[0])
-    if (currentElement.current === null) {
+document.body.addEventListener("touchstart", (event) => {
+    console.log(event.touches.length)
+    if (event.touches.length < 2 && dragItems.includes(event.targetTouches[0].target)) {
         currentElement.current = event.targetTouches[0];
         document.body.addEventListener('touchmove', handleTouchMove);
-        shiftX = event.touches[0].clientX - this.getBoundingClientRect().left;
-        shiftY = event.touches[0].clientY - this.getBoundingClientRect().top;
+        shiftX = event.touches[0].clientX - currentElement.current.target.getBoundingClientRect().left;
+        shiftY = event.touches[0].clientY - currentElement.current.target.getBoundingClientRect().top;
     }
-}
+})
 
 function handleTouchMove(event) {
     if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
