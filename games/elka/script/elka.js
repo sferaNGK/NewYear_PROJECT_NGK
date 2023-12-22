@@ -50,12 +50,6 @@ for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕ�
     }
 }
 
-document.body.addEventListener("touchstart", (e) => {
-    if (e.touches.length > 2) {
-        handleTouchEnd()
-    }
-})
-
 function handleTouchStart(event) {
     if (currentElement.current === null) {
         currentElement.current = event.targetTouches[0];
@@ -68,6 +62,12 @@ function handleTouchStart(event) {
 function handleTouchMove(event) {
     if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
         let item = currentElement.current.target
+
+        document.body.addEventListener("touchstart", (e) => {
+            if (e.touches.length > 2) {
+                handleTouchEnd()
+            }
+        })
 
         // --- ЗАДАЕМ ЧЕРЕЗ JS-АНИМАЦИЮ КООРДИНАТЫ НАШЕГО КУРСОРА (ПАЛЬЦА) НА ЭКРАНЕ ---
         item.style.left = (event.touches[0].pageX - shiftX) * 100 / document.documentElement.clientWidth + '%';
