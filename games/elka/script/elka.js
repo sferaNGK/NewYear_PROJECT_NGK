@@ -62,10 +62,13 @@ document.body.addEventListener("touchstart", (event) => {
         document.body.addEventListener('touchmove', handleTouchMove);
         shiftX = event.touches[0].clientX - currentElement.current.target.getBoundingClientRect().left;
         shiftY = event.touches[0].clientY - currentElement.current.target.getBoundingClientRect().top;
+    } else {
+        currentElement.current = null;
     }
 })
 
 function handleTouchMove(event) {
+    console.log(event.touches.length)
     if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
         let item = currentElement.current.target
 
