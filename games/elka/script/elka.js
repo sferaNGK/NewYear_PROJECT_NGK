@@ -63,11 +63,10 @@ function handleTouchMove(event) {
     if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
         let item = currentElement.current.target
 
-        document.body.addEventListener("touchstart", (e) => {
-            if (e.touches.length > 2) {
-                handleTouchEnd()
-            }
-        })
+        document.body.onresize = function () {
+            console.log('sdf')
+            currentElement.current = null;
+        }
 
         // --- ЗАДАЕМ ЧЕРЕЗ JS-АНИМАЦИЮ КООРДИНАТЫ НАШЕГО КУРСОРА (ПАЛЬЦА) НА ЭКРАНЕ ---
         item.style.left = (event.touches[0].pageX - shiftX) * 100 / document.documentElement.clientWidth + '%';
