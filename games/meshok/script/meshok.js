@@ -57,16 +57,22 @@ for (let item of dragItems) {
     item.addEventListener('touchstart', handleTouchStart);
 }
 
+document.querySelector("body").addEventListener("touchstart", handleTouchStart)
+
 function handleTouchStart(event){
-    currentElement.current = event.targetTouches[0];
-    document.body.addEventListener('touchmove', handleTouchMove);
-    shiftX = event.touches[0].pageX - this.getBoundingClientRect().left;
-    shiftY = event.touches[0].pageY - this.getBoundingClientRect().top;
+    if (currentElement.current === null) {
+        currentElement.current = event.targetTouches[0];
+        if (currentElement.current.target.className.split(' ')[0]  === "drag-item") {
+            currentElement.current.target.addEventListener('touchmove', handleTouchMove);
+            shiftX = event.touches[0].pageX - this.getBoundingClientRect().left;
+            shiftY = event.touches[0].pageY - this.getBoundingClientRect().top;
+        }
+    }
 }
 
 function handleTouchMove(event) {
-    if (currentElement.current !== null) {
-        let item = currentElement.current.target;
+    if (currentElement.current !== null && currentElement.current.target.className.split(' ')[0] === "drag-item") { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
+        let item = currentElement.current.target
 
         document.body.onresize = () => {
             currentElement.current = null;

@@ -50,17 +50,21 @@ for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕ�
     }
 }
 
-function handleTouchStart(event) {
+document.querySelector("body").addEventListener("touchstart", handleTouchStart)
+
+function handleTouchStart(event){
     if (currentElement.current === null) {
         currentElement.current = event.targetTouches[0];
-        currentElement.current.target.addEventListener('touchmove', handleTouchMove);
-        shiftX = event.touches[0].clientX - this.getBoundingClientRect().left;
-        shiftY = event.touches[0].clientY - this.getBoundingClientRect().top;
+        if (currentElement.current.target.className.split(' ')[0]  === "drag-item") {
+            currentElement.current.target.addEventListener('touchmove', handleTouchMove);
+            shiftX = event.touches[0].pageX - this.getBoundingClientRect().left;
+            shiftY = event.touches[0].pageY - this.getBoundingClientRect().top;
+        }
     }
 }
 
 function handleTouchMove(event) {
-    if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
+    if (currentElement.current !== null && currentElement.current.target.className.split(' ')[0] === "drag-item") { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
         let item = currentElement.current.target
 
         document.body.onresize = () => {

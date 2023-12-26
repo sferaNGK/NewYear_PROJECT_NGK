@@ -52,15 +52,21 @@ for (let item of dragItems) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕ�
     item.addEventListener('touchstart', handleTouchStart);
 }
 
+document.querySelector("body").addEventListener("touchstart", handleTouchStart)
+
 function handleTouchStart(event){
-    currentElement.current = event.targetTouches[0];
-    document.body.addEventListener('touchmove', handleTouchMove);
-    shiftX = event.touches[0].pageX - this.getBoundingClientRect().left;
-    shiftY = event.touches[0].pageY - this.getBoundingClientRect().top;
+    if (currentElement.current === null) {
+        currentElement.current = event.targetTouches[0];
+        if (currentElement.current.target.className === "drag-item") {
+            currentElement.current.target.addEventListener('touchmove', handleTouchMove);
+            shiftX = event.touches[0].pageX - this.getBoundingClientRect().left;
+            shiftY = event.touches[0].pageY - this.getBoundingClientRect().top;
+        }
+    }
 }
 
 function handleTouchMove(event) {
-    if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
+    if (currentElement.current !== null && currentElement.current.target.className.split(' ')[0] === "drag-item") { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
         let item = currentElement.current.target
 
         document.body.onresize = () => {
@@ -68,8 +74,8 @@ function handleTouchMove(event) {
         }
 
         // --- ЗАДАЕМ ЧЕРЕЗ JS-АНИМАЦИЮ КООРДИНАТЫ НАШЕГО КУРСОРА (ПАЛЬЦА) НА ЭКРАНЕ ---
-            item.style.left = (event.touches[0].pageX - shiftX)*100/document.documentElement.clientWidth + '%';
-            item.style.top = (event.touches[0].pageY - shiftY)*100/document.documentElement.clientHeight + '%';
+        item.style.left = (event.touches[0].pageX - shiftX)*100/document.documentElement.clientWidth + '%';
+        item.style.top = (event.touches[0].pageY - shiftY)*100/document.documentElement.clientHeight + '%';
 
         // --- ПРОВЕРЯЕМ, НЕ ВЫХОДИТ ЛИ НАШ ОБЪЕКТ ЗА ГРАНИЦЫ ЭКРАНА ---
         if (item.style.left.slice(0, 4) < 0) {
@@ -101,6 +107,13 @@ function cellIsCorrect(item, elemBelow) {
 }
 
 function handleTouchEnd(){ // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭКРАНА - ТЕКУЩИЙ ПЕРЕМЕЩАЕМЫЙ ОБЪЕКТ ОБНУЛЯЕТСЯ
+    let item = currentElement.current.target
+
+    if (item.style.left.slice(0, 4) < 0 || item.style.left.slice(0, 4) > 93 || item.style.top.slice(0, 4) < 0 || item.style.top.slice(0, 4) > 90) {
+        item.style.left = "50%"
+        item.style.top = "50%"
+    }
+
     currentElement.current = null;
     let correctCells = 0
     for (let item of dragItems) {
