@@ -133,6 +133,13 @@ function meshokIsFull(elemBelow, item) {
 }
 
 function handleTouchEnd(){
+    let item = currentElement.current.target
+
+    if (item.style.left.slice(0, 4) < 0 || item.style.left.slice(0, 4) > 93 || item.style.top.slice(0, 4) < 0 || item.style.top.slice(0, 4) > 90) {
+        item.style.left = "50%"
+        item.style.top = "50%"
+    }
+
     currentElement.current = null;
 }
 
